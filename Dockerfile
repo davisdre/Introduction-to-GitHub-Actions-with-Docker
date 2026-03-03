@@ -1,5 +1,5 @@
 # Builder stage
-FROM python:3.12-slim as builder
+FROM python:3.12-slim AS builder
 
 WORKDIR /app
 
@@ -15,10 +15,8 @@ WORKDIR /app
 
 # Copy only necessary files from builder
 COPY --from=builder /app/main.py .
-COPY --from=builder /root/.local /root/.local
 
 # Set environment variables
-ENV PATH=/root/.local/bin:$PATH
 ENV PYTHONUNBUFFERED=1
 
 # Expose the port
