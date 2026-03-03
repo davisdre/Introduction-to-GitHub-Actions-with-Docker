@@ -23,6 +23,6 @@ class MyHandler(SimpleHTTPRequestHandler):
         self.wfile.write(html.encode())
 
 if __name__ == '__main__':
-    server = HTTPServer(('localhost', 8000), MyHandler)
+    server = HTTPServer(('0.0.0.0', 8000), MyHandler)
     print('Server running on http://localhost:8000')
     server.serve_forever()
